@@ -1,10 +1,10 @@
 {
-  "ai": "claude",
+  "ai": "gemini",
   "ai_commands_dir": null,
   "ai_skills": true,
   "branch_numbering": "sequential",
   "here": true,
-  "integration": "claude",
+  "integration": "gemini",
   "offline": false,
   "preset": null,
   "script": "ps",
