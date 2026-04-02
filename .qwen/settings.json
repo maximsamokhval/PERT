@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.specify\\scripts\\powershell\\create-new-feature.ps1 *)"
+    ]
+  },
+  "$version": 3
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "extensions": {
+    "superb": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:9403df65b0e6107b24d45c3de82a8d15fff475b3b9bd3a2154b194df767dff52",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "qwen": [
+          "speckit.superb.clarify",
+          "speckit.superb.tdd",
+          "speckit.superb.review",
+          "speckit.superb.verify",
+          "speckit.superb.critique",
+          "speckit.superb.debug",
+          "speckit.superb.finish",
+          "speckit.superb.respond"
+        ]
+      },
+      "registered_skills": [
+        "speckit-superb-clarify",
+        "speckit-superb-tdd",
+        "speckit-superb-review",
+        "speckit-superb-verify",
+        "speckit-superb-critique",
+        "speckit-superb-debug",
+        "speckit-superb-finish",
+        "speckit-superb-respond"
+      ],
+      "installed_at": "2026-04-02T10:41:21.350774+00:00"
+    }
+  }
+}
