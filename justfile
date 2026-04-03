@@ -62,7 +62,7 @@ fe-dev:
 # Generate TypeScript types from live backend OpenAPI spec
 # Backend must be running on :8000 before calling this recipe
 fe-generate:
-    cd frontend && pnpm openapi-ts
+    cd frontend && pnpm openapi-typescript http://127.0.0.1:8000/openapi.json -o src/types/api.ts
 
 # Run full test suite
 fe-test:
