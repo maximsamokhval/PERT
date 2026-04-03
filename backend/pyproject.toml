@@ -1,14 +1,71 @@
 [project]
 name = "backend"
 version = "0.1.0"
-description = "PERT Estimation SDLC Tool"
+description = "PERT Estimation SDLC Tool — Backend"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "mypy>=1.20.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "sqlalchemy[asyncio]>=2.0.0",
+    "aiosqlite>=0.20.0",
+    "alembic>=1.13.0",
+    "pydantic[email]>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "python-jose[cryptography]>=3.3.0",
+    "bcrypt>=4.0.0",
+    "passlib[bcrypt]>=1.7.4",
+    "loguru>=0.7.0",
+    "cryptography>=41.0.0",
+    "python-multipart>=0.0.9",
+    "jinja2>=3.1.0",
+    "xhtml2pdf>=0.2.15",
 ]
 
 [dependency-groups]
 dev = [
+    "mypy>=1.20.0",
+    "ruff>=0.4.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.12.0",
+    "hypothesis>=6.100.0",
+    "httpx>=0.27.0",
     "pre-commit>=4.5.1",
+    "types-python-jose>=3.3.0",
+    "types-passlib>=1.7.0",
 ]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+ignore_missing_imports = false
+
+[[tool.mypy.overrides]]
+module = [
+    "sqlalchemy.*",
+    "alembic.*",
+    "xhtml2pdf.*",
+    "jinja2.*",
+    "passlib.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

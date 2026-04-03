@@ -33,11 +33,6 @@ be-typecheck:
 be-check-file file:
     cd backend && uv run mypy {{file}} && uv run ruff check {{file}}
 
-
-# Type-check + lint single file (agent calls after every file)
-be-check-file file:
-    cd backend && uv run mypy {{file}} && uv run ruff check {{file}}
-
 # ruff lint
 be-lint:
     cd backend && uv run ruff check src/
