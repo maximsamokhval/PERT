@@ -533,6 +533,25 @@ Need an external integration (tracker, email, storage, any third-party API)?
 7. Move to the next step only after the commit is recorded
 ```
 
+AFTER EVERY PYTHON FILE — NO EXCEPTIONS:
+
+Step 1. Self-check before running tools:
+  □ from __future__ import annotations  ← first line of file
+  □ every function/method: all parameters annotated
+  □ every function/method: return type annotated (including -> None)
+  □ no bare list/dict/tuple — only list[T], dict[K, V], tuple[T, ...]
+  □ no Optional[T] — only T | None
+  □ no Any without # type: ignore[specific-code] with justification comment
+
+Step 2. Run: just be-check-file <path/to/file.py>
+
+Step 3. If errors → fix → repeat Step 2
+
+Step 4. Only after exit code 0 → git commit
+
+DO NOT move to the next file until exit code is 0.
+
+
 ### Prohibited patterns — will be rejected at code review
 
 **1. Business logic in routers:**
