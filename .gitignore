@@ -121,3 +121,6 @@ desktop.ini
 .idea/
 frontend/tsconfig.tsbuildinfo
 repomix-output.xml
+.qwen/settings.json
+.qwen/settings.json
+.qwen/settings.json

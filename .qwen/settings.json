@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(.specify\\scripts\\powershell\\create-new-feature.ps1 *)"
+      "Bash(.specify\\scripts\\powershell\\create-new-feature.ps1 *)",
+      "Bash(pnpm install)",
+      "Bash(pnpm add *)"
     ]
   },
   "$version": 3
