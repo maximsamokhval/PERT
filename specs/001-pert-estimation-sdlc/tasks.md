@@ -31,11 +31,18 @@ tasks.md                ← implementation order only
 
 ---
 
+## Quality Gates
+
+  ✅ Gate: `cd backend; uv run mypy src/shared/types.py` → exit 0
+  ✅ Gate: `git commit -m "chore(shared): add NewType IDs"` → committed
+  [ mark task complete ONLY after both gates pass ]
+
 ## Phase 1: Setup (Shared Infrastructure)
 
 **Purpose**: Project initialization and basic structure
 
 - [ ] T001 Create backend project structure: backend/src/features/{sessions,items,export,settings,auth}/, backend/src/core/, backend/src/shared/
+    ⛔ COMMIT GATE: `git add -A; git commit -m "chore(setup): create project structure"` — required before marking complete
 - [ ] T002 Create frontend project structure: frontend/src/features/{sessions,items,export,settings,auth}/, frontend/src/components/, frontend/src/types/
 - [ ] T003 [P] Initialize backend with FastAPI, SQLAlchemy 2.0 async, Pydantic v2, aiosqlite in backend/pyproject.toml
 - [ ] T004 [P] Initialize frontend with Next.js 15, TanStack Query, Tailwind CSS, shadcn/ui in frontend/package.json

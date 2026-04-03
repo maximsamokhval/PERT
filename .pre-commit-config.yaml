@@ -1,0 +1,35 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^backend/
+      - id: ruff-format
+        files: ^backend/
+
+  - repo: local
+    hooks:
+      - id: mypy-backend
+        name: mypy-backend
+        entry: bash -c 'cd backend && uv run mypy src/'
+        language: system
+        types: [python]
+        files: ^backend/
+        pass_filenames: false
+
+      - id: tsc-frontend
+        name: tsc-frontend
+        entry: bash -c 'cd frontend && pnpm typecheck'
+        language: system
+        types: [typescript]
+        files: ^frontend/
+        pass_filenames: false
+
+      - id: eslint-frontend
+        name: eslint-frontend
+        entry: bash -c 'cd frontend && pnpm lint'
+        language: system
+        types: [typescript]
+        files: ^frontend/
+        pass_filenames: false
