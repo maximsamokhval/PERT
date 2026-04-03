@@ -4,14 +4,13 @@ import uuid
 from datetime import UTC, datetime, timedelta
 from typing import Annotated, Any
 
+import bcrypt as _bcrypt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import JWTError, jwt
-from passlib.context import CryptContext
 
 from .config import Settings, get_settings
 
-_pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 _bearer = HTTPBearer(auto_error=False)
 
 
@@ -20,13 +19,12 @@ _bearer = HTTPBearer(auto_error=False)
 
 def hash_password(password: str) -> str:
     """Return bcrypt hash of the given password."""
-    return str(_pwd_context.hash(password))
+    return _bcrypt.hashpw(password.encode(), _bcrypt.gensalt()).decode()
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Return True if plain_password matches the stored bcrypt hash."""
-    result: bool = _pwd_context.verify(plain_password, hashed_password)
-    return result
+    return bool(_bcrypt.checkpw(plain_password.encode(), hashed_password.encode()))
 
 
 # ── Token creation ─────────────────────────────────────────────────────────────
