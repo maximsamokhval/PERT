@@ -533,6 +533,43 @@ Need an external integration (tracker, email, storage, any third-party API)?
 7. Move to the next step only after the commit is recorded
 ```
 
+### Session Bootstrap Protocol (FIRST action in every session)
+
+Before writing any code, agent MUST read these files in this exact order:
+
+1. `constitution.md` — architectural rules (this file)
+2. `specs/001-pert-estimation-sdlc/design.md` — data models, formulas, API contracts
+3. `specs/001-pert-estimation-sdlc/design-type-patterns.md` — canonical Python patterns
+4. `justfile` — shell syntax and available commands for this OS
+5. `specs/001-pert-estimation-sdlc/tasks.md` — current task only (not entire file)
+
+**Reading justfile is NON-NEGOTIABLE** — shell syntax differs between Windows/Linux/Mac.
+The justfile is the single source of truth for how commands are run.
+DO NOT guess shell syntax. DO NOT use `cd x && y` if justfile uses `cd x; y`.
+
+### Tool Failure Protocol
+
+When any tool call returns an error:
+
+STOP — do not repeat the same call with the same parameters
+READ the full error message
+IDENTIFY an alternative tool or approach
+Maximum 1 retry after changing parameters or tool
+If still failing → log to YouTrack MCP and ask user
+
+
+**PROHIBITED:** calling the same failing tool repeatedly without changing approach.
+
+Example of PROHIBITED behaviour:
+create_directory → error: not found
+create_directory → error: not found   ← STOP HERE, do not repeat
+create_directory → error: not found
+
+Correct behaviour:
+create_directory → error: not found
+→ read error → switch to mcp__filesystem__create_directory or run_shell_command mkdir
+
+
 AFTER EVERY PYTHON FILE — NO EXCEPTIONS:
 
 Step 1. Self-check before running tools:

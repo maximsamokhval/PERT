@@ -17,6 +17,39 @@ required for forward references in SQLAlchemy models and circular type hints.
 
 ---
 
+## 0.5. Import Structure (relative imports — mandatory)
+
+All imports within `backend/src/` MUST use relative imports.
+Absolute imports starting with `backend.src` or `src` are PROHIBITED inside `src/`.
+
+| File location | Imports from | Correct import |
+|--------------|-------------|----------------|
+| `features/auth/routes.py` | `core/config.py` | `from ...core.config import get_settings` |
+| `features/auth/routes.py` | `core/db.py` | `from ...core.db import get_db` |
+| `features/auth/services.py` | `shared/types.py` | `from ...shared.types import UserId` |
+| `features/sessions/services.py` | `features/items/models.py` | `from ..items.models import EstimationItem` |
+| `features/sessions/models.py` | `core/db.py` | `from ...core.db import Base` |
+| `alembic/env.py` | `core/db.py` | `from src.core.db import Base` ← exception: alembic runs from backend/ root |
+
+**Rule:** count `..` by how many directories up you need to go from current file to reach `src/`.
+- `features/auth/routes.py` → `core/` needs `...` (up: auth → features → src → core)
+- `features/auth/services.py` → `features/items/` needs `..` (up: auth → features → items)
+
+**PROHIBITED:**
+```python
+from backend.src.core.config import Settings   # absolute — PROHIBITED
+from src.core.config import Settings           # absolute from src — PROHIBITED (inside src/)
+import backend.src.shared.types                # absolute — PROHIBITED
+```
+
+**REQUIRED:**
+```python
+from ...core.config import Settings   # relative — CORRECT
+from ...shared.types import UserId    # relative — CORRECT
+```
+
+---
+
 ## 1. SQLAlchemy Models
 
 ```python
