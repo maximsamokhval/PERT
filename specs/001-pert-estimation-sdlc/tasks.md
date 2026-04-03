@@ -5,6 +5,17 @@
 
 **Tests**: Test tasks are included per Constitution Principle III (TDD mandatory — 100% PERT formula coverage, property-based tests, E2E critical path). Merging without CI passing is prohibited.
 
+## Document Authority Hierarchy
+
+When field names, types, or values conflict between documents — follow this order:
+constitution.md         ← highest authority
+design.md               ← data models, formulas, field names
+design-type-patterns.md ← Python patterns
+data-model.md           ← supporting detail only
+research.md             ← context only, NOT authoritative for field names
+tasks.md                ← implementation order only
+
+
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
 ## Format: `[ID] [P?] [Story] Description`
