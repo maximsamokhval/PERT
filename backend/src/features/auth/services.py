@@ -120,7 +120,7 @@ class AuthService:
             )
 
         # Update last_seen_at
-        user.last_seen_at = datetime.now(UTC)  # type: ignore[assignment]
+        user.last_seen_at = datetime.now(UTC)
         await self._db.commit()
 
         return self._build_token_response(email)
