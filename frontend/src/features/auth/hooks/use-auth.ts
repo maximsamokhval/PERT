@@ -12,8 +12,10 @@ import {
   registerAction,
   logoutAction,
   getCurrentUserAction,
-  type UserData,
 } from "@/features/auth/actions/auth";
+import type { components } from "@/types/api";
+
+type UserData = components["schemas"]["UserRead"];
 
 const CURRENT_USER_QUERY_KEY = ["currentUser"] as const;
 

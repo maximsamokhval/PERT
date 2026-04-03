@@ -2,20 +2,11 @@
 
 import { cookies } from "next/headers";
 import { apiFetch, ApiError } from "@/lib/api";
+import type { components } from "@/types/api";
 
-export type UserData = {
-  id: string;
-  email: string;
-  display_name: string;
-  role: "editor" | "viewer";
-};
+type UserData = components["schemas"]["UserRead"];
 
-interface AuthTokenResponse {
-  access_token: string;
-  refresh_token: string;
-  token_type: string;
-  expires_in: number;
-}
+type AuthTokenResponse = components["schemas"]["TokenResponse"];
 
 const ACCESS_TOKEN_COOKIE = "access_token";
 const REFRESH_TOKEN_COOKIE = "refresh_token";
