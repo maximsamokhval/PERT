@@ -97,9 +97,9 @@ This rule overrides task-level instructions.
 
 ### Test-First Prerequisites (Constitution Principle III)
 
-- [ ] T024a [P] [US1] Write property-based tests for PERT formulas in backend/tests/unit/test_pert_calculations.py using Hypothesis: 1000+ random inputs validating against Canonical PERT Formula Reference
-- [ ] T024b [P] [US1] Create shared test vectors fixture in backend/tests/fixtures/pert_test_vectors.json: 1000+ test cases for Python/JS parity (consumed by T029, T044, T092)
-- [ ] T024c [P] [US1] Write Vitest PERT formula parity test suite in frontend/tests/unit/pert-parity.test.ts: consumes T024b, verifies frontend/src/features/items/utils/pert-calc.ts produces identical results for all test vectors
+- [x] T024a [P] [US1] Write property-based tests for PERT formulas in backend/tests/unit/test_pert_calculations.py using Hypothesis: 1000+ random inputs validating against Canonical PERT Formula Reference
+- [x] T024b [P] [US1] Create shared test vectors fixture in backend/tests/fixtures/pert_test_vectors.json: 1000+ test cases for Python/JS parity (consumed by T029, T044, T092)
+- [x] T024c [P] [US1] Write Vitest PERT formula parity test suite in frontend/tests/unit/pert-parity.test.ts: consumes T024b, verifies frontend/src/features/items/utils/pert-calc.ts produces identical results for all test vectors
 
 ### Implementation for User Story 1
 
