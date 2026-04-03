@@ -78,7 +78,7 @@ fe-typecheck:
 
 # ESLint
 fe-lint:
-    cd frontend && pnpm lint
+    cd frontend && pnpm eslint src/
 
 # Production build
 fe-build:
