@@ -46,14 +46,14 @@ This rule overrides task-level instructions.
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create backend project structure: backend/src/features/{sessions,items,export,settings,auth}/, backend/src/core/, backend/src/shared/
-- [ ] T002 Create frontend project structure: frontend/src/features/{sessions,items,export,settings,auth}/, frontend/src/components/, frontend/src/types/
-- [ ] T003 [P] Initialize backend with FastAPI, SQLAlchemy 2.0 async, Pydantic v2, aiosqlite in backend/pyproject.toml
-- [ ] T004 [P] Initialize frontend with Next.js 15, TanStack Query, Tailwind CSS, shadcn/ui in frontend/package.json
-- [ ] T005 [P] Configure backend linting and formatting (ruff, mypy --strict) in backend/pyproject.toml
-- [ ] T006 [P] Configure frontend linting and formatting (ESLint, Prettier) in frontend/package.json
-- [ ] T007 Create justfile with all recipes: be-sync, be-dev, be-test, be-migrate, fe-install, fe-dev, fe-generate, ci
-- [ ] T008 Setup .pre-commit-config.yaml with ruff-format, ruff-check, mypy-backend, tsc-frontend, eslint-frontend
+- [x] T001 Create backend project structure: backend/src/features/{sessions,items,export,settings,auth}/, backend/src/core/, backend/src/shared/
+- [x] T002 Create frontend project structure: frontend/src/features/{sessions,items,export,settings,auth}/, frontend/src/components/, frontend/src/types/
+- [x] T003 [P] Initialize backend with FastAPI, SQLAlchemy 2.0 async, Pydantic v2, aiosqlite in backend/pyproject.toml
+- [x] T004 [P] Initialize frontend with Next.js 15, TanStack Query, Tailwind CSS, shadcn/ui in frontend/package.json
+- [x] T005 [P] Configure backend linting and formatting (ruff, mypy --strict) in backend/pyproject.toml
+- [x] T006 [P] Configure frontend linting and formatting (ESLint, Prettier) in frontend/package.json
+- [x] T007 Create justfile with all recipes: be-sync, be-dev, be-test, be-migrate, fe-install, fe-dev, fe-generate, ci
+- [x] T008 Setup .pre-commit-config.yaml with ruff-format, ruff-check, mypy-backend, tsc-frontend, eslint-frontend
 
 ---
 
