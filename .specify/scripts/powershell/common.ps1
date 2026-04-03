@@ -69,7 +69,7 @@ function Get-CurrentBranch {
 
     # For non-git repos, try to find the latest feature directory
     $specsDir = Join-Path $repoRoot "specs"
-    
+
     if (Test-Path $specsDir) {
         $latestFeature = ""
         $highest = 0
@@ -99,7 +99,7 @@ function Get-CurrentBranch {
             return $latestFeature
         }
     }
-    
+
     # Final fallback
     return "main"
 }
@@ -132,13 +132,13 @@ function Test-FeatureBranch {
         [string]$Branch,
         [bool]$HasGit = $true
     )
-    
+
     # For non-git repos, we can't enforce branch naming but still provide output
     if (-not $HasGit) {
         Write-Warning "[specify] Warning: Git repository not detected; skipped branch validation"
         return $true
     }
-    
+
     if ($Branch -notmatch '^[0-9]{3}-' -and $Branch -notmatch '^\d{8}-\d{6}-') {
         Write-Output "ERROR: Not on a feature branch. Current branch: $Branch"
         Write-Output "Feature branches should be named like: 001-feature-name or 20260319-143022-feature-name"
@@ -157,7 +157,7 @@ function Get-FeaturePathsEnv {
     $currentBranch = Get-CurrentBranch
     $hasGit = Test-HasGit
     $featureDir = Get-FeatureDir -RepoRoot $repoRoot -Branch $currentBranch
-    
+
     [PSCustomObject]@{
         REPO_ROOT     = $repoRoot
         CURRENT_BRANCH = $currentBranch
@@ -261,4 +261,3 @@ function Resolve-Template {
 
     return $null
 }
-

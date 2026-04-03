@@ -1,18 +1,37 @@
 repos:
+  # 1. БАЗОВАЯ ГИГИЕНА И ЗАЩИТА ОТ МУСОРА
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+        args: ['--maxkb=500'] # Блокирует коммит тяжелых файлов (дампов, логов)
+
+  # 2. ЗАЩИТА ПРОТОКОЛА КОММИТОВ (Universal Completion Protocol)
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.1.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+        args: [] # Требует строгий формат: feat(api): description
+
+  # 3. BACKEND: RUFF (С жестким выходом при автофиксах)
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.0
     hooks:
       - id: ruff
-        args: [--fix]
+        # Если Ruff вносит изменения, он вернет ошибку. Агент будет обязан перепроверить код.
+        args: [--fix, --exit-non-zero-on-fix]
         files: ^backend/
       - id: ruff-format
         files: ^backend/
 
+  # 4. BACKEND & FRONTEND: ЛОКАЛЬНЫЕ ПРОВЕРКИ
   - repo: local
     hooks:
       - id: mypy-backend
-        name: mypy-backend
-        # Запускаємо uv з вказанням проекту, шлях до src відносно кореня
+        name: 🛡️ Strict Type Check (Mypy)
         entry: uv run --project backend mypy backend
         language: system
         types: [python]
@@ -20,8 +39,7 @@ repos:
         pass_filenames: false
 
       - id: tsc-frontend
-        name: tsc-frontend
-        # cmd /c дозволяє коректно відпрацювати на Windows
+        name: 🛡️ Strict Type Check (TSC)
         entry: cmd /c "cd frontend && pnpm typecheck"
         language: system
         types: [ts, tsx]
@@ -29,7 +47,7 @@ repos:
         pass_filenames: false
 
       - id: eslint-frontend
-        name: eslint-frontend
+        name: 🚨 Anti-Hallucination Guard (ESLint)
         entry: cmd /c "cd frontend && pnpm lint"
         language: system
         types: [ts, tsx, javascript]

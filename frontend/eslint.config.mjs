@@ -20,7 +20,7 @@ export default tseslint.config(
       ...nextPlugin.configs.recommended.rules,
       "@next/next/no-html-link-for-pages": "error",
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-      
+
       // 1. AST-блокування ручних контрактів API
       "no-restricted-syntax": [
         "error",
@@ -29,7 +29,7 @@ export default tseslint.config(
           "message": "Manual API interfaces are PROHIBITED by Constitution. Use auto-generated types from '@/types/api.ts'."
         }
       ],
-      
+
       // 2. Блокування типу 'any'
       "@typescript-eslint/no-explicit-any": "error",
 
