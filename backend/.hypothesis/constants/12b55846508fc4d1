@@ -1,0 +1,4 @@
+# file: C:\development\PERT_2_0\backend\src\shared\enums.py
+# hypothesis_version: 6.151.10
+
+['AUTHENTICATION_ERROR', 'CONFLICT', 'CONNECTION_ERROR', 'FIELD_MAPPING_ERROR', 'FORBIDDEN', 'ITEM_LIMIT_REACHED', 'NOT_FOUND', 'SESSION_APPROVED', 'TRACKER_API_ERROR', 'UNAUTHORIZED', 'VALIDATION_ERROR', 'approved', 'draft', 'editor', 'exported', 'failed', 'not_exported', 'viewer', 'youtrack']

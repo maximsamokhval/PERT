@@ -1,0 +1,4 @@
+# file: C:\development\PERT_2_0\backend\src\features\auth\services.py
+# hypothesis_version: 6.151.10
+
+['Bearer', 'User not found', 'WWW-Authenticate', 'access_token', 'bearer', 'expires_in', 'refresh_token', 'token_type']

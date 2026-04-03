@@ -1,0 +1,4 @@
+# file: C:\development\PERT_2_0\backend\src\shared\types.py
+# hypothesis_version: 6.151.10
+
+['ExportMappingId', 'ItemId', 'SessionId', 'UserId']

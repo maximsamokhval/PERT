@@ -1,0 +1,4 @@
+# file: C:\development\PERT_2_0\backend\src\core\config.py
+# hypothesis_version: 6.151.10
+
+[',', '.env', 'HS256', 'INFO', 'ignore', 'sqlite', 'utf-8']

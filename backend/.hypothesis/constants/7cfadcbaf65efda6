@@ -1,0 +1,4 @@
+# file: C:\development\PERT_2_0\backend\src\core\security.py
+# hypothesis_version: 6.151.10
+
+['Bearer', 'WWW-Authenticate', 'access', 'exp', 'jti', 'refresh', 'sub', 'type']

@@ -1,0 +1,4 @@
+# file: C:\development\PERT_2_0\backend\src\core\db.py
+# hypothesis_version: 6.151.10
+
+['SELECT 1', 'check_same_thread', 'connect', 'sqlite']
