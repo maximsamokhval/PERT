@@ -15,6 +15,17 @@ data-model.md           ← supporting detail only
 research.md             ← context only, NOT authoritative for field names
 tasks.md                ← implementation order only
 
+# Tasks: PERT Estimation SDLC Tool
+
+## ⛔ Universal Completion Protocol — applies to EVERY task
+
+Before marking ANY task `[x]`, execute in order:
+1. `git add <changed_file_path>`
+2. `git commit -m "type(scope): description"`
+
+One file = one commit. No batching. No exceptions.
+This rule overrides task-level instructions.
+
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
