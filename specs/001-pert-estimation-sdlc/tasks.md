@@ -103,7 +103,16 @@ This rule overrides task-level instructions.
 
 ### Implementation for User Story 1
 
-- [ ] T025 [P] [US1] Create Session SQLAlchemy model in backend/src/features/sessions/models.py: id, user_id, title, description, status (draft/approved), focus_factor (Literal[0.5,0.6,0.7,0.8,0.9,1.0]), hours_per_day, contingency_factor k (Literal[0.05,0.1,0.15,0.2], default 0.1), created_at, updated_at, approved_at — Note: spread_threshold added in T046
+## ⛔ Universal Completion Protocol — applies to EVERY task
+
+Before marking ANY task `[x]`, execute in order:
+1. `git add <changed_file_path>`
+2. `git commit -m "type(scope): description"`
+
+One file = one commit. No batching. No exceptions.
+This rule overrides task-level instructions.
+
+- [x] T025 [P] [US1] Create Session SQLAlchemy model in backend/src/features/sessions/models.py: id, user_id, title, description, status (draft/approved), focus_factor (Literal[0.5,0.6,0.7,0.8,0.9,1.0]), hours_per_day, contingency_factor k (Literal[0.05,0.1,0.15,0.2], default 0.1), created_at, updated_at, approved_at — Note: spread_threshold added in T046
 - [ ] T026 [P] [US1] Create EstimationItem SQLAlchemy model in backend/src/features/items/models.py: id, session_id, title, description, optimistic, most_likely, pessimistic, t_expected, spread, sigma, variance, hidden_reserve, total_effort, duration_days, tracker_issue_id, export_status, created_at, updated_at
 - [ ] T027 [P] [US1] Create Pydantic schemas for Session in backend/src/features/sessions/schemas.py: SessionCreate, SessionUpdate, SessionRead, SessionListRead — include contingency_factor: Literal[0.05, 0.1, 0.15, 0.2] = 0.1 in Create/Update/Read schemas
 - [ ] T028 [P] [US1] Create Pydantic schemas for Item in backend/src/features/items/schemas.py: ItemCreate, ItemUpdate, ItemRead, ItemListRead with validation O ≥ 1, M ≥ O, P ≥ M, all integers ≥ 1 (no decimals — per FR-013 and Canonical PERT Formula Reference); ItemRead MUST include duration_days: float (3 decimal precision) per Constitution Principle I; validation via shared test vectors (T091/T092)
