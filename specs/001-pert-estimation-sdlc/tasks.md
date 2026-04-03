@@ -63,27 +63,27 @@ This rule overrides task-level instructions.
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T009 [P] Create NewType IDs in backend/src/shared/types.py: SessionId, ItemId, UserId, ExportMappingId
-- [ ] T010 [P] Create ErrorResponse and PartialResultResponse models in backend/src/shared/models.py per Constitution Principle V:
+- [x] T009 [P] Create NewType IDs in backend/src/shared/types.py: SessionId, ItemId, UserId, ExportMappingId
+- [x] T010 [P] Create ErrorResponse and PartialResultResponse models in backend/src/shared/errors.py per Constitution Principle V:
   - ErrorResponse: code (str), message (str), detail (str | None), request_id (str UUID for log correlation)
   - PartialResultResponse: succeeded (list[ItemResult]), failed (list[FailedItemResult]), total (int)
-- [ ] T011 [P] Create ErrorCode StrEnum in backend/src/shared/models.py: VALIDATION_ERROR, NOT_FOUND, UNAUTHORIZED, FORBIDDEN, CONFLICT, AUTHENTICATION_ERROR
-- [ ] T012 [P] Implement configuration management in backend/src/core/config.py: Settings with ENCRYPTION_KEY, database URL, JWT settings
-- [ ] T013 [P] Implement database connection in backend/src/core/db.py: AsyncSession, engine with WAL mode for SQLite
-- [ ] T014 [P] Implement JWT authentication middleware in backend/src/core/security.py: bcrypt password hashing, access/refresh tokens
-- [ ] T015 [P] Create base User model in backend/src/features/auth/models.py: email, display_name, password_hash, role (editor/viewer), last_seen_at (datetime | None)
-- [ ] T016 [P] Implement AuthService in backend/src/features/auth/services.py: login, register, token refresh
-- [ ] T017 [P] Create auth routes in backend/src/features/auth/routes.py: POST /api/auth/login, POST /api/auth/register
-- [ ] T018 [P] Setup Alembic migrations framework in backend/alembic/: env.py, script.py.mako, initial migration
-- [ ] T019 [P] Configure loguru structured logging in backend/src/core/logging.py
-- [ ] T020 [P] Create frontend API client in frontend/src/lib/api.ts: fetch wrapper with JWT auth headers, automatic access-token injection, and silent refresh via refresh-token on 401
-- [ ] T021 [P] Create LoginPage in frontend/src/app/login/page.tsx: email/password form, calls POST /api/auth/login, stores JWT in httpOnly cookie via Server Action
-- [ ] T021a [P] Create RegisterPage in frontend/src/app/register/page.tsx: email/display_name/password form, calls POST /api/auth/register
-- [ ] T021b [P] Implement useAuth hook in frontend/src/features/auth/hooks/use-auth.ts: TanStack Query wrapper for current user, login, logout, register
-- [ ] T021c [P] Create auth Server Actions in frontend/src/features/auth/actions/auth.ts: login, logout, register — handle JWT cookie lifecycle
-- [ ] T022 [P] Create base Command/Service dependency injection pattern in backend/src/core/db.py: get_db dependency for FastAPI Depends()
-- [ ] T023 [P] Create shared test fixtures in backend/tests/fixtures/__init__.py: pytest fixtures for db session, test client, auth tokens
-- [ ] T024 [P] Create PERT test vectors fixture in backend/tests/fixtures/pert_test_vectors.json: 1000+ test cases for property-based testing (consumed by T090/T092)
+- [x] T011 [P] Create ErrorCode StrEnum in backend/src/shared/enums.py: VALIDATION_ERROR, NOT_FOUND, UNAUTHORIZED, FORBIDDEN, CONFLICT, AUTHENTICATION_ERROR
+- [x] T012 [P] Implement configuration management in backend/src/core/config.py: Settings with ENCRYPTION_KEY, database URL, JWT settings
+- [x] T013 [P] Implement database connection in backend/src/core/db.py: AsyncSession, engine with WAL mode for SQLite
+- [x] T014 [P] Implement JWT authentication middleware in backend/src/core/security.py: bcrypt password hashing, access/refresh tokens
+- [x] T015 [P] Create base User model in backend/src/features/auth/models.py: email, display_name, password_hash, role (editor/viewer), last_seen_at (datetime | None)
+- [x] T016 [P] Implement AuthService in backend/src/features/auth/services.py: login, register, token refresh
+- [x] T017 [P] Create auth routes in backend/src/features/auth/routes.py: POST /api/auth/login, POST /api/auth/register, POST /api/auth/refresh, GET /api/auth/me
+- [x] T018 [P] Setup Alembic migrations framework in backend/alembic/: env.py, script.py.mako, initial migration
+- [x] T019 [P] Configure loguru structured logging in backend/src/core/logging.py
+- [x] T020 [P] Create frontend API client in frontend/src/lib/api.ts: fetch wrapper with JWT auth headers, automatic access-token injection, and silent refresh via refresh-token on 401
+- [x] T021 [P] Create LoginPage in frontend/src/app/login/page.tsx: email/password form, calls POST /api/auth/login, stores JWT in httpOnly cookie via Server Action
+- [x] T021a [P] Create RegisterPage in frontend/src/app/register/page.tsx: email/display_name/password form, calls POST /api/auth/register
+- [x] T021b [P] Implement useAuth hook in frontend/src/features/auth/hooks/use-auth.ts: TanStack Query wrapper for current user, login, logout, register
+- [x] T021c [P] Create auth Server Actions in frontend/src/features/auth/actions/auth.ts: login, logout, register — handle JWT cookie lifecycle
+- [x] T022 [P] Create base Command/Service dependency injection pattern in backend/src/core/db.py: get_db dependency for FastAPI Depends()
+- [x] T023 [P] Create shared test fixtures in backend/tests/fixtures/__init__.py: pytest fixtures for db session, test client, auth tokens
+- [x] T024 [P] Create PERT test vectors fixture in backend/tests/fixtures/pert_test_vectors.json: 1000+ test cases for property-based testing (consumed by T090/T092)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
