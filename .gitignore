@@ -1,0 +1,122 @@
+# ============================================================
+# Python
+# ============================================================
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# uv
+.uv/
+uv.lock
+
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+
+*.db
+
+
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checkers
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# Logs
+*.log
+logs/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# ============================================================
+# Node.js
+# ============================================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# Build output
+dist/
+.next/
+.nuxt/
+out/
+build/
+
+# Cache
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.stylelintcache
+
+# Runtime
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================================
+# VS Code
+# ============================================================
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json     # удали эту строку если settings личные
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# ============================================================
+# AI / Agent tools
+# ============================================================
+
+.agents/
+.qwen/
+GEMINI.md
+QWEN.md
+CLAUDE.md
+skills-lock.json
+
+# ============================================================
+# OS
+# ============================================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# Misc
+# ============================================================
+
+*.bak
+*.swp
+*.tmp
+.idea/
+frontend/tsconfig.tsbuildinfo
