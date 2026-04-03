@@ -120,3 +120,4 @@ desktop.ini
 *.tmp
 .idea/
 frontend/tsconfig.tsbuildinfo
+repomix-output.xml

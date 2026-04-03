@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "PERT Estimation SDLC Tool"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "mypy>=1.20.0",
+]
 
 [dependency-groups]
 dev = [

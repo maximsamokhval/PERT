@@ -1,0 +1,37 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^backend/
+      - id: ruff-format
+        files: ^backend/
+
+  - repo: local
+    hooks:
+      - id: mypy-backend
+        name: mypy-backend
+        # Запускаємо uv з вказанням проекту, шлях до src відносно кореня
+        entry: uv run --project backend mypy backend
+        language: system
+        types: [python]
+        files: ^backend/
+        pass_filenames: false
+
+      - id: tsc-frontend
+        name: tsc-frontend
+        # cmd /c дозволяє коректно відпрацювати на Windows
+        entry: cmd /c "cd frontend && pnpm typecheck"
+        language: system
+        types: [ts, tsx]
+        files: ^frontend/
+        pass_filenames: false
+
+      - id: eslint-frontend
+        name: eslint-frontend
+        entry: cmd /c "cd frontend && pnpm lint"
+        language: system
+        types: [ts, tsx, javascript]
+        files: ^frontend/
+        pass_filenames: false
