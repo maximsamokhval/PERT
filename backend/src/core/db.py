@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+import uuid
 from collections.abc import AsyncGenerator
 
-from sqlalchemy import event, text
+from sqlalchemy import Uuid, event, text
 from sqlalchemy.ext.asyncio import (
     AsyncEngine,
     AsyncSession,
@@ -11,11 +12,19 @@ from sqlalchemy.ext.asyncio import (
 )
 from sqlalchemy.orm import DeclarativeBase
 
+from ..shared.types import ExportMappingId, ItemId, SessionId, UserId
+
 
 class Base(DeclarativeBase):
     """SQLAlchemy declarative base. All ORM models inherit from this."""
 
-    pass
+    type_annotation_map = {
+        UserId: Uuid,
+        SessionId: Uuid,
+        ItemId: Uuid,
+        ExportMappingId: Uuid,
+        uuid.UUID: Uuid,
+    }
 
 
 # Module-level engine and session factory — initialized once during app startup
